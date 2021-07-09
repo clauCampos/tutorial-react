@@ -4,14 +4,16 @@ import BodyTabla from './BodyTabla';
 
 class Tabla extends Component {
     render() {
-        const { datosPersonas } = this.props;
+
+        const { datosPersonas, eliminarPersona } = this.props;
 
         return (
             <table className="table">
                 <HeadTabla/>
-                <BodyTabla datosPersonas={datosPersonas}/>
+                <BodyTabla datosPersonas={datosPersonas} eliminarPersona={eliminarPersona} />
             </table>
-        );
+        )
     }
 }
+
 export default Tabla;

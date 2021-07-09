@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Tabla from './Tabla';
 
-class App extends React.Component {
-    render(){
 
-        const personas = [
+class App extends Component {
+    state = {
+        personas: [
             {
                 nombre: 'Clark',
                 apellido: 'Kent',
@@ -21,14 +21,26 @@ class App extends React.Component {
                 nombre: 'Selina',
                 apellido: 'Kyle',
             },
-        ];
+        ],
+    }
 
+    eliminarPersona = (indice) => {
+        const { personas } = this.state
+
+        this.setState({
+            personas: personas.filter((personas, i) => {
+                return i !== indice;
+            }),
+        });
+    }
+    render(){
+        const {personas} = this.state;
         return (
             <div className="container">
                 <h1>Tutorial de React de Neoguias!</h1>
-                <Tabla datosPersonas={personas} />
+                <Tabla datosPersonas={personas} eliminarPersona={this.eliminarPersona} />
             </div>
-        );
+        )
     }
 }
 export default App;
