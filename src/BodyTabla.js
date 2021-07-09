@@ -1,26 +1,13 @@
 import React from 'react';
-
-const BodyTabla = () => {
-    return (
-        <tbody>
-        <tr>
-            <td>Clark</td>
-            <td>Kent</td>
-        </tr>
-        <tr>
-            <td>Bruce</td>
-            <td>Wayne</td>
-        </tr>
-        <tr>
-            <td>Peter</td>
-            <td>Parker</td>
-        </tr>
-        <tr>
-            <td>Selina</td>
-            <td>Kyle</td>
-        </tr>
-        </tbody>
-    );
+const BodyTabla = (props) => {
+    const filas = props.datosPersonas.map((fila, indice) => {
+        return (
+            <tr key={indice}>
+                <td>{fila.nombre}</td>
+                <td>{fila.apellido}</td>
+            </tr>
+        );
+    })
+    return <tbody>{filas}</tbody>
 }
-
 export default BodyTabla;
